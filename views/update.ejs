@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+</head>
+<body>
+<h1><%= title %></h1>
+<p>Welcome to <%= title %></p>
+
+<form action="/update" method="post" enctype="application/x-www-form-urlencoded">
+    <hr>
+    <img class="" src="<%= data.link %>"/>
+    <h4 class="text"><%= data.noidung %></h4>
+    <div><%= data.ngay %></div>
+    <hr>
+    <!--input voi id để truyền lên id mà ko cho người dùng sửa
+    nên đặt là hidden-->
+
+    <input name="id" value="<%= data._id %>" hidden>
+    <div>Nội dung : <input name="noidung" value=" <%= data.noidung %>"></div>
+    <div>Ngày : <input type="date" name="ngay" value="<%= data.ngay %>"></div>
+    <div>Link ảnh : <input name="link" value=" <%= data.link %>"></div>
+
+    <button type="submit">Update</button>
+
+</form>
+
+
+</body>
+</html>

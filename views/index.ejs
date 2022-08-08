@@ -33,11 +33,17 @@
             </div>
 
         </div>
-        <img src="images/registration.jpg" style="width: 100%"/>
 
-
-        <div>
-
+        <div class="d-flex">
+            <% for(var i = 0;i < data.length; i++){ %>
+                <div class="">
+                    <img class="" src="<%= data[i].link %>"/>
+                    <a href="/delete/?id=<%= data[i]._id %>">Delete</a>
+                    <a href="/updateForm/?id=<%= data[i]._id %>">Update</a>
+                    <h4 class="text"><%= data[i].noidung %></h4>
+                    <div><%= data[i].ngay %></div>
+                </div>
+            <% } %>
         </div>
 
         <div>
@@ -73,7 +79,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form action="/create" method="post" enctype="application/x-www-form-urlencoded">
                         <div class="mb-3">
                             <label for="recipient-name" class="col-form-label">Nội dung: </label>
                             <input type="text" name="noidung" class="form-control" id="recipient-name">
@@ -83,11 +89,10 @@
                             <input type="date" name="ngay" class="form-control" id="recipient-name">
                         </div>
                         <div class="mb-3">
-                            <label for="message-text" class="col-form-label">Upload file: </label>
-                            <input type="file" name="avatar" accept="image/*">
+                            <label for="message-text" class="col-form-label">Link image: </label>
+                            <input type="text" name="link" class="form-control" id="recipient-name">
                         </div>
                         <button type="submit" class="btn btn-primary">Upload Image</button>
-
                     </form>
                 </div>
                 <div class="modal-footer">
