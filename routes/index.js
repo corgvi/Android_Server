@@ -38,7 +38,7 @@ router.get('/delete/', function (req, res) {
   const id = req.query.id;
   itemModel.deleteOne({_id: id}, function (error) {
     if (error) throw error;
-    res.send('Xoa thanh cong!!!');
+    res.redirect("/")
   })
 
 })
