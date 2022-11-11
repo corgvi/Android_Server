@@ -81,7 +81,6 @@ router.post('/create', async function (req, res) {
   })
 
   await item.save();
-
   const itemList = mongoose.model('images', itemSchema);
   itemList.find({}, function (error, result) {
     if(error){
